@@ -1,6 +1,6 @@
 package com.gw.scheduler.entities;
 
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.Column;
 import jakarta.persistence.EntityListeners;
 import jakarta.persistence.MappedSuperclass;
@@ -22,19 +22,19 @@ public abstract class AuditableClass
 {
 	@CreatedDate
 	@Column(updatable = false)
-	@ApiModelProperty(notes = "Date when the entity was created")
+	@Schema(description = "Date when the entity was created")
 	private LocalDateTime createdDate;
 
 	@LastModifiedDate
-	@ApiModelProperty(notes = "Date when the entity was last updated")
+	@Schema(description = "Date when the entity was last updated")
 	private LocalDateTime modifiedDate;
 
 	@CreatedBy
 	@Column(updatable = false)
-	@ApiModelProperty(notes = "User ID who created the entity. Defaulting to 0 without user auth in place")
-	private int createdBy=0;
+	@Schema(description = "User ID who created the entity. Defaulting to 0 without user auth in place")
+	private int createdBy = 0;
 
 	@LastModifiedBy
-	@ApiModelProperty(notes = "User ID who last updated the entity. Defaulting to 0 without user auth in place")
-	private int modifiedBy=0;
+	@Schema(description = "User ID who last updated the entity. Defaulting to 0 without user auth in place")
+	private int modifiedBy = 0;
 }
